@@ -1,6 +1,10 @@
-name = "dionis"
-age = 29
-weight = 80
-is_student = True
+def first(size, *ass ):
+    return size + len(ass)
 
-print(" name: " + name  + ", " + " age: " + str(age) + ", " + " weight: " + str(weight) + ", " + " is_student: " + str(is_student))
+
+def second(size, **egs):
+    return size + len(egs)
+
+print(first(10, 20, 30))
+print(second(10, a=20, b=30))
+
