@@ -1,10 +1,12 @@
-def first(size, *ass ):
-    return size + len(ass)
+def factorial(n):
+    if n < 2:
+        return 1
+    else:
+        return n * factorial(n - 1)
 
 
-def second(size, **egs):
-    return size + len(egs)
-
-print(first(10, 20, 30))
-print(second(10, a=20, b=30))
+def number_of_groups(n, k):
+   
+    return factorial(n)// ( factorial(n -k)* factorial(k))
+print(number_of_groups(100, 10))
 
