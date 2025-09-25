@@ -1,12 +1,7 @@
-def factorial(n):
-    if n < 2:
-        return 1
-    else:
-        return n * factorial(n - 1)
+my_list = []
+my_list.insert(0, 2024)
+my_list.insert(1, 'python')
+my_list.insert(2, 3.12)
 
 
-def number_of_groups(n, k):
-   
-    return factorial(n)// ( factorial(n -k)* factorial(k))
-print(number_of_groups(100, 10))
-
+print(my_list)
