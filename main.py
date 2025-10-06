@@ -1,26 +1,21 @@
-from datetime import datetime
+import random
 
-def get_days_from_today(date):
-    try:
-        # Перетворюємо рядок у дату
-        target_date = datetime.strptime(date, "%Y-%m-%d").date()
-        
-        # Отримуємо поточну дату
-        today = datetime.today().date()
-        
-        # Різниця у днях (може бути від’ємна)
-        delta = today - target_date
-        
-        # Повертаємо кількість днів як ціле число
-        return delta.days
+def get_numbers_ticket(min, max, quantity):
+    # Перевіряємо коректність вхідних даних
+    if not (1 <= min < max <= 1000):
+        return []
+    if not (1 <= quantity <= (max - min + 1)):
+        return []
     
-    except ValueError:
-        # Якщо формат дати неправильний
-        print("Помилка: дата повинна бути у форматі 'РРРР-ММ-ДД'")
-        return None
+    # Генеруємо унікальні випадкові числа
+    numbers = random.sample(range(min, max + 1), quantity)
+    
+    # Повертаємо відсортований список
+    return sorted(numbers)
 
 
 # Приклади використання:
-print(get_days_from_today("2021-10-09"))  # приклад із завдання
-print(get_days_from_today("2025-10-01"))  # приклад з майбутньою датою
-print(get_days_from_today("2020/10/09"))  # приклад з помилковим форматом
+print(get_numbers_ticket(1, 49, 6))    # Наприклад: [4, 15, 23, 28, 37, 45]
+print(get_numbers_ticket(1, 36, 5))    # Наприклад: [3, 7, 15, 27, 35]
+print(get_numbers_ticket(10, 20, 15))  # Помилка: кількість > діапазону → []
+
